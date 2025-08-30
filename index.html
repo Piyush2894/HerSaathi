@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HerSaathi - Your Smart Life Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="text-gray-700">
+
+    <!-- Landing Page -->
+    <div id="landing-page" class="min-h-screen p-8">
+        <div class="container mx-auto max-w-5xl">
+            <header class="flex justify-between items-center mb-16">
+                 <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center soft-shadow">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h1 class="text-2xl font-bold text-primary-dark">HerSaathi</h1>
+                </div>
+                <button id="get-started-btn" class="bg-accent text-white font-bold py-2 px-6 rounded-full hover:opacity-90 transition-opacity soft-shadow">Get Started</button>
+            </header>
+
+            <main class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-primary-dark leading-tight">Your Smart <span class="text-accent">Hinglish</span> Life Assistant</h2>
+                <p class="text-primary-medium mt-4 max-w-2xl mx-auto text-lg">Effortlessly manage your day, from emotional wellness to expense tracking, with an AI that understands you.</p>
+                
+                <div class="mt-16 grid md:grid-cols-3 gap-8 text-left">
+                    <div class="bg-white/50 backdrop-blur-sm p-6 rounded-2xl soft-shadow border border-white">
+                        <div class="w-12 h-12 bg-accent text-white rounded-xl flex items-center justify-center mb-4"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg></div>
+                        <h3 class="font-bold text-lg text-primary-dark">Track Expenses Naturally</h3>
+                        <p class="text-gray-600 mt-2 text-sm">Just say <span class="italic text-primary-medium">"आज सब्ज़ी में 120 रुपये लगे"</span> and HerSaathi will categorize it for you.</p>
+                    </div>
+                    <div class="bg-white/50 backdrop-blur-sm p-6 rounded-2xl soft-shadow border border-white">
+                        <div class="w-12 h-12 bg-accent text-white rounded-xl flex items-center justify-center mb-4"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                        <h3 class="font-bold text-lg text-primary-dark">Understand Feelings</h3>
+                        <p class="text-gray-600 mt-2 text-sm">Feeling tired? HerSaathi detects your mood and offers gentle, personalized support.</p>
+                    </div>
+                    <div class="bg-white/50 backdrop-blur-sm p-6 rounded-2xl soft-shadow border border-white">
+                        <div class="w-12 h-12 bg-accent text-white rounded-xl flex items-center justify-center mb-4"><svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg></div>
+                        <h3 class="font-bold text-lg text-primary-dark">Voice-First & Inclusive</h3>
+                        <p class="text-gray-600 mt-2 text-sm">Speak freely in Hinglish. HerSaathi listens, understands, and responds, removing all typing barriers.</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="app-container" class="hidden">
+        <div class="flex h-screen bg-light-pink">
+            <aside class="hidden md:flex flex-col w-64 bg-white border-r border-gray-200 p-6">
+                <div id="home-logo-btn-desktop" class="flex items-center space-x-3 mb-10 cursor-pointer">
+                    <div class="w-10 h-10 bg-light-pink rounded-lg flex items-center justify-center">
+                        <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    </div>
+                    <h1 class="text-2xl font-bold text-primary-dark">HerSaathi</h1>
+                </div>
+                <nav id="nav-buttons-desktop" class="flex flex-col space-y-2">
+                    <button data-page="home-page" class="nav-btn flex items-center space-x-3 p-3 rounded-lg text-left bg-light-pink text-accent font-semibold">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                        <span>Home</span>
+                    </button>
+                    <button data-page="analytics-page" class="nav-btn flex items-center space-x-3 p-3 rounded-lg text-left text-gray-500 hover:bg-light-pink hover:text-accent">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6m-8 0h-2a2 2 0 01-2-2v-6a2 2 0 012-2h2m8 0h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4-12v.01"></path></svg>
+                        <span>Analytics</span>
+                    </button>
+                     <button data-page="chat-page" class="nav-btn flex items-center space-x-3 p-3 rounded-lg text-left text-gray-500 hover:bg-light-pink hover:text-accent">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        <span>Chat</span>
+                    </button>
+                    <button data-page="settings-page" class="nav-btn flex items-center space-x-3 p-3 rounded-lg text-left text-gray-500 hover:bg-light-pink hover:text-accent">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <span>Settings</span>
+                    </button>
+                </nav>
+                <div class="mt-auto">
+                    <div class="flex items-center space-x-3 p-3 bg-light-pink rounded-lg">
+                        <div id="user-initial-desktop" class="w-10 h-10 bg-soft-pink rounded-full flex items-center justify-center font-bold text-primary-medium"></div>
+                        <div>
+                            <p class="font-semibold text-sm">User</p>
+                            <p id="user-id-display-desktop" class="text-xs text-gray-500 truncate"></p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="flex-1 flex flex-col overflow-hidden">
+                <header class="md:hidden flex justify-between items-center p-4 border-b bg-white">
+                    <h1 id="home-logo-btn-mobile" class="text-xl font-bold text-primary-dark cursor-pointer">HerSaathi</h1>
+                    <div id="user-initial-mobile" class="w-8 h-8 bg-soft-pink rounded-full flex items-center justify-center font-bold text-primary-medium"></div>
+                </header>
+
+                <main class="flex-1 overflow-x-hidden overflow-y-auto bg-light-pink p-4 md:p-8">
+                    <div id="home-page" class="page active">
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                            <div class="lg:col-span-2 space-y-6">
+                                 <div class="bg-white p-6 rounded-2xl soft-shadow text-center">
+                                    <p class="text-xl text-gray-600 mb-2">Hi there! How can I help you today?</p>
+                                    <div class="w-20 h-20 bg-gradient-to-br from-green-200 to-blue-200 rounded-full mx-auto flex items-center justify-center mb-4">
+                                        <button id="mic-btn" class="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-inner transition-transform hover:scale-110">
+                                            <svg class="w-8 h-8 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                                        </button>
+                                    </div>
+                                    <p class="text-sm text-gray-400 mb-3">Tap to speak or type below</p>
+                                    <div class="relative max-w-xl mx-auto">
+                                        <input type="text" id="main-input" placeholder="Ask me about expenses, reminders, or just chat..." class="w-full p-4 pr-14 bg-light-pink rounded-lg border-2 border-transparent input-shadow focus:outline-none text-lg">
+                                        <button id="add-btn" class="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-accent rounded-lg transition-transform hover:scale-110"></button>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div class="bg-white p-5 rounded-2xl soft-shadow">
+                                        <p class="text-sm text-gray-500">This Week's Expenses</p>
+                                        <p id="expense-summary" class="text-3xl font-bold text-primary-dark">₹0</p>
+                                    </div>
+                                    <div class="bg-white p-5 rounded-2xl soft-shadow">
+                                        <p class="text-sm text-gray-500">Current Mood</p>
+                                        <p id="mood-summary" class="text-3xl font-bold text-primary-dark">---</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="bg-white p-5 rounded-2xl soft-shadow">
+                                     <h2 class="text-lg font-semibold text-primary-dark mb-3">Translate</h2>
+                                     <textarea id="translator-input" class="w-full p-3 bg-light-pink rounded-lg border-2 border-transparent input-shadow focus:outline-none resize-none" rows="3" placeholder="Enter English text..."></textarea>
+                                     <button id="translate-btn" class="w-full mt-3 py-2 bg-accent text-white font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center"></button>
+                                     <div id="translator-output" class="mt-3 p-3 bg-light-pink rounded-lg text-primary-medium text-lg hidden"></div>
+                                </div>
+                                <div class="bg-white p-5 rounded-2xl soft-shadow">
+                                    <h2 class="text-lg font-semibold text-primary-dark mb-4">Recent Activity</h2>
+                                    <div id="activity-feed" class="space-y-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="analytics-page" class="page space-y-8">
+                        <h1 class="text-3xl font-bold text-primary-dark">Analytics Dashboard</h1>
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div class="bg-white p-6 rounded-2xl soft-shadow">
+                                <h2 class="text-xl font-semibold text-primary-dark mb-4">Expense Analysis</h2>
+                                <div class="w-full h-64 mx-auto"><canvas id="expense-pie-chart"></canvas></div>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl soft-shadow">
+                                <h2 class="text-xl font-semibold text-primary-dark mb-4">Weekly Mood Trend</h2>
+                                <div class="w-full h-64"><canvas id="mood-line-chart"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="chat-page" class="page">
+                         <div class="bg-white rounded-2xl soft-shadow h-[80vh] flex flex-col">
+                            <h2 class="text-xl font-bold text-primary-dark p-6 border-b flex-shrink-0">Conversation</h2>
+                            <div id="chat-feed" class="flex-grow space-y-4 overflow-y-auto p-6"></div>
+                         </div>
+                    </div>
+
+                    <div id="settings-page" class="page max-w-2xl mx-auto space-y-8">
+                        <h1 class="text-3xl font-bold text-primary-dark">Settings</h1>
+                        <div class="text-center bg-white p-8 rounded-2xl soft-shadow">
+                            <div id="settings-user-initial" class="w-24 h-24 bg-soft-pink rounded-full mx-auto flex items-center justify-center font-bold text-4xl text-primary-medium border-4 border-white shadow-md"></div>
+                            <h2 id="user-id-display" class="text-sm font-mono text-gray-500 mt-4 break-all"></h2>
+                        </div>
+                        <div class="bg-white p-6 rounded-2xl soft-shadow space-y-2">
+                            <div class="p-3 flex justify-between items-center"><span>App Version</span><span class="text-gray-400">1.0.5 (Navigation Fix)</span></div>
+                            <div class="p-3 flex justify-between items-center"><span>Data Status</span><span id="data-status" class="float-right text-green-500">Connecting...</span></div>
+                        </div>
+                    </div>
+                </main>
+
+                <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-gray-200">
+                    <div id="nav-buttons-mobile" class="flex justify-around py-2">
+                         <button data-page="home-page" class="nav-btn text-center text-accent">
+                            <svg class="w-6 h-6 mx-auto" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                            <span class="text-xs font-medium">Home</span>
+                        </button>
+                        <button data-page="analytics-page" class="nav-btn text-center text-gray-400 hover:text-accent">
+                            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 012-2h2a2 2 0 012 2v6m-8 0h-2a2 2 0 01-2-2v-6a2 2 0 012-2h2m8 0h2a2 2 0 012 2v6a2 2 0 01-2 2h-2m-4-12v.01"></path></svg>
+                            <span class="text-xs">Analytics</span>
+                        </button>
+                        <button data-page="chat-page" class="nav-btn text-center text-gray-400 hover:text-accent">
+                            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                            <span class="text-xs">Chat</span>
+                        </button>
+                        <button data-page="settings-page" class="nav-btn text-center text-gray-400 hover:text-accent">
+                            <svg class="w-6 h-6 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span class="text-xs">Settings</span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    
+    <div id="alert-box" class="fixed top-5 right-5 bg-accent text-white py-3 px-5 rounded-lg shadow-xl transform translate-x-[120%] transition-transform duration-500 ease-in-out"></div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

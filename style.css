@@ -1,0 +1,33 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF9FB;
+}
+.bg-accent { background-color: #FF69B4; }
+.text-accent { color: #FF69B4; }
+.border-accent { border-color: #FF69B4; }
+.text-primary-dark { color: #8B008B; }
+.text-primary-medium { color: #C71585; }
+.bg-light-pink { background-color: #FFF7F9; }
+.bg-soft-pink { background-color: #FFD1DC; }
+
+.soft-shadow { box-shadow: 0 4px 25px rgba(211, 128, 143, 0.1); }
+.input-shadow:focus { box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.3); border-color: #FF69B4; }
+
+.page { display: none; }
+.page.active { display: block; animation: fadeIn 0.5s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.spinner {
+    border: 2px solid #f3f3f3; border-top: 2px solid #FF69B4;
+    border-radius: 50%; width: 16px; height: 16px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #FFF7F9; }
+::-webkit-scrollbar-thumb { background: #FFD1DC; border-radius: 10px; }
+
+#landing-page {
+     background: linear-gradient(135deg, #FFF9FB 0%, #FFE4E1 100%);
+}
